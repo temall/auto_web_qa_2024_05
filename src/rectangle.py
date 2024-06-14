@@ -17,5 +17,3 @@ class Rectangle(Figure):
     def get_perimetr(self):
         return (self.side_a + self.side_b) * 2
 
-
-r = Rectangle(2, 3)
