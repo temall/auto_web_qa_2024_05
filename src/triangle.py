@@ -5,8 +5,8 @@ class Triangle:
     def __init__(self, side_a, side_b, side_c):
         if side_a <= 0 or side_b <= 0 or side_c <= 0:
             raise ValueError("The triangle cannot be created with negative digits")
-        if side_a == side_b and side_b == side_c:
-            pass
+        if side_a + side_b <= side_c and side_a + side_c <= side_b and side_b + side_c <= side_a:
+            raise ValueError("The triangle can only exist if the sum of its two sides is greater than the third side")
 
         self.side_a = side_a
         self.side_b = side_b
