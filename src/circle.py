@@ -3,6 +3,9 @@ from math import pi, radians
 
 class Circle:
     def __init__(self, radius):
+        if radius <= 0:
+            raise ValueError("Radius can`t be less than 0")
+
         self.radius = radius
 
     @property
@@ -12,4 +15,3 @@ class Circle:
     @property
     def get_perimeter(self):
         return 2 * pi * self.radius
-
