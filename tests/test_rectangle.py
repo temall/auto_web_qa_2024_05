@@ -20,7 +20,7 @@ def test_rectangle_negative_and_zero_value(side_a, side_b):
 ])
 def test_rectangle_get_area(side_a, side_b, area):
     r = Rectangle(side_a, side_b)
-    assert r.get_area == 44
+    assert r.get_area == area
 
 
 @pytest.mark.parametrize("side_a, side_b, perimetr", [
@@ -29,4 +29,4 @@ def test_rectangle_get_area(side_a, side_b, area):
 ])
 def test_rectangle_get_perimeter(side_a, side_b, perimetr):
     r = Rectangle(side_a, side_b)
-    assert r.get_perimetr == 48
+    assert r.get_perimetr == perimetr
