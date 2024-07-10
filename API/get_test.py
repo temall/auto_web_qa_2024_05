@@ -14,14 +14,14 @@ def test_get_resource_requests_invalid_project_id(client):
     assert response.status_code == 404
 
 
-def test_get_resource_requests_id(client, resource_request_id):
-    response = client.get_projects_resource_request_by_id(resource_request_id)
+def test_get_resource_requests_id(client, resource_requests_id):
+    response = client.get_projects_resource_requests_id(resource_requests_id)
     assert response.status_code == 200
     ResourceRequest(**response.json())
 
 
 def test_get_resource_requests_invalid_id(client):
-    response = client.get_projects_resource_request_by_id(111)
+    response = client.get_projects_resource_requests_id(111)
     assert response.status_code == 404
 
 
@@ -40,20 +40,20 @@ def test_get_resource_requests_length_id(client):
 
 
 def test_get_resource_requests_boolean_id(client):
-    response = client.get_projects_resource_request_by_id(False)
+    response = client.get_projects_resource_requests_id(False)
     assert response.status_code == 404
 
 
 def test_get_resource_requests_string_id(client):
-    response = client.get_projects_resource_request_by_id('number')
+    response = client.get_projects_resource_requests_id('number')
     assert response.status_code == 404
 
 
 def test_get_resource_requests_negative_id(client):
-    response = client.get_projects_resource_request_by_id(-111)
+    response = client.get_projects_resource_requests_id(-111)
     assert response.status_code == 404
 
 
 def test_get_resource_requests_floating_id(client):
-    response = client.get_projects_resource_request_by_id(111.111)
+    response = client.get_projects_resource_requests_id(111.111)
     assert response.status_code == 404

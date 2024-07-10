@@ -4,9 +4,9 @@ from datetime import datetime
 import pytest
 
 
-def addoption(parser):
-    parser.addoption("--token", token='K50MDgwHryuDs0D7emYMfxTvQK_ZMZYU')
-    parser.addoption("--url", url="https://api.gectaro.com")
+def pytest_addoption(parser):
+    parser.addoption("--token")
+    parser.addoption("--url", default="https://api.gectaro.com")
 
 
 @pytest.fixture(scope='session')
@@ -32,7 +32,7 @@ def resource(client):
         'name': "Resource Name",
         "needed_at": int(datetime.now().timestamp()),
         "project_id": client.project_id,
-        'type': 11,
+        'type': 1,
         'volume': 33
     }
     resource_response = client.post_projects_resource(data)

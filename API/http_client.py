@@ -16,9 +16,9 @@ class GectaroHttpClient:
         response = self.session.get(f"{self.base_url}/v1/projects/{self.project_id}/resource-requests")
         return response
 
-    def get_projects_resource_requests_id(self, resource_request_id):
+    def get_projects_resource_requests_id(self, resource_requests_id):
         response = self.session.get(f"{self.base_url}/v1/projects/{self.project_id}/resource-requests"
-                                    f"/{resource_request_id}")
+                                    f"/{resource_requests_id}")
         return response
 
     def post_projects_resource(self, data):

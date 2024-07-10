@@ -9,7 +9,7 @@ def test_successful_post_resource_requests(client, resource):
             'cost': 123,
             "is_over_budget": True,
             "needed_at": int(datetime.now().timestamp())}
-    response = client.post_projects_resource_request(data=data)
+    response = client.post_projects_resource_requests(data=data)
     assert response.status_code == 201
     ResourceRequest(**response.json())
 
@@ -19,7 +19,7 @@ def test_post_resource_requests_with_missing_required_field(client, resource):
             'cost': 123,
             "is_over_budget": True,
             "needed_at": int(datetime.now().timestamp())}
-    response = client.post_projects_resource_request(data=data)
+    response = client.post_projects_resource_requests(data=data)
     assert response.status_code == 422
 
 
@@ -32,7 +32,7 @@ def test_post_resource_requests_invalid_id(client, project_tasks_resource_id):
             'cost': 123,
             "is_over_budget": False,
             "needed_at": int(datetime.now().timestamp())}
-    response = client.post_projects_resource_request(data=data)
+    response = client.post_projects_resource_requests(data=data)
     assert response.status_code == 422
 
 
@@ -45,7 +45,7 @@ def test_post_resource_requests_invalid_values(client, resource, volume, cost):
             'cost': cost,
             "is_over_budget": False,
             "needed_at": int(datetime.now().timestamp())}
-    response = client.post_projects_resource_request(data=data)
+    response = client.post_projects_resource_requests(data=data)
     assert response.status_code == 422
 
 
@@ -55,5 +55,5 @@ def test_post_resource_requests_with_false_data_validation(client, resource):
             'cost': 111,
             "is_over_budget": 'over_budget',
             "needed_at": int(datetime.now().timestamp())}
-    response = client.post_projects_resource_request(data=data)
+    response = client.post_projects_resource_requests(data=data)
     assert response.status_code == 422
